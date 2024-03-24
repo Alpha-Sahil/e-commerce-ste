@@ -1,0 +1,26 @@
+.admin-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.admin-table {
+    width: 80%;
+}
+
+.admin-table-head {
+    background-color: black;
+    color: white;
+}
+
+.create-button {
+    float: right;
+    margin-bottom: 1em;
+}
+
+.category-action {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}

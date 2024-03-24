@@ -1,0 +1,327 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Madimi One", sans-serif;
+}
+
+header {
+    background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);
+}
+
+nav {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.madimi-one-regular {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.banner-two-parts {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.banner-slogan, .banner-image {
+    width: 50%;
+    text-align: center;
+}
+
+.banner-slogan {
+    position: relative;
+}
+
+.slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 8%;
+}
+
+.banner-image img {
+    width: 70%;
+}
+
+.banner-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 400px;
+}
+
+.slogan-icons i {
+    margin: 1em;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: 8px;
+    transition: 250ms;
+}
+
+.slogan-icons i:hover {
+    background-color: #0001;
+}
+
+.slogan-button button {
+    font-size: 1.5em;
+    border: none;
+    padding: .5em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.slogan-button button:hover {   
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.slogan-button {
+    /* position: absolute; */
+    left: 0%;
+    bottom: 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-ul {
+    display: flex;
+    flex-direction: row;
+    margin-right: 3em;
+}
+
+.navigation-logo {
+    width: 5%;
+    cursor: pointer;
+}
+
+.navigation-logo img {
+    width: 100%;
+}
+
+.navigation-ul li {
+    padding: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 250ms;
+}
+
+.navigation-ul li:hover {
+    background-color: #DFFFCD;
+}
+
+.banner-container {
+    /* margin-top: 3em; */
+    background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);
+}
+
+.categories-section {
+    margin-top: 5em;
+    background-color: #0001;
+    padding: 1em;
+}
+
+.categories-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.categories-box button {
+    /* margin: 1em; */
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: .5em;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: 200ms;
+}
+
+.categories-box button:hover {
+    background-color: #90F9C4;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.products-section {
+    background-color: #0001;
+}
+
+.products-container {
+    margin: 5em;
+}
+
+.product-box-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5em;
+    justify-content: center;
+}
+
+.product-single, .card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image, .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 15em;
+}
+
+.category-infomation {
+    gap: 1em;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 15em;
+}
+
+.products-section {
+    margin-top: 5em;
+}
+
+.product-single-container, .card-container {
+    width: 15em;
+    background-color: #0001;
+    padding: 1em;
+    border-radius: 10px;
+    transition: 200ms;
+}
+
+.card-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-single-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-info {
+    margin-top: .5em;
+}
+
+.product-info button {
+    margin: 0.5em;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.8em;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: 200ms;
+}
+
+.product-info button:hover {
+    background-color: #90F9C4;;
+}
+
+/* .product-price {
+    float: right;
+} */
+
+.product-price {
+    padding: .5em;
+}
+
+.section-footer {
+    background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);
+}
+
+.footer-content-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lower-banner-section {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.lower-banner-section-image img {
+    object-fit: cover;
+    height: 30em;
+    width: 100%;
+}
+
+.lower-banner-section-image span {
+    position: absolute;
+    margin: 0;
+    bottom: 0em;
+    left: 0em;
+    color: white;
+    font-size: 5em;
+}
+
+.lower-banner-section-image {
+    position: relative;
+}
+
+@media only screen and (max-width: 800px) {
+    .banner-slogan, .banner-image {
+        width: 100%;
+    }
+
+    .banner-container {
+        margin-top: 0;
+    }
+}
+
+.app-button {
+    font-size: 1.5em;
+    border: none;
+    padding: .5em;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: 250ms;
+
+}
+
+.app-button:hover {
+    background-color: #0002;
+}
