@@ -1,4 +1,4 @@
-import bannerImage from '../assets/images/t-banner1.png'
+import bannerImage from '../assets/images/t-banner3.png'
 import shirt1 from '../assets/images/shirt-1.jpg'
 import footerBannerImage from '../assets/images/footer-banner.jpg'
 import Category from "./Category/Index"
@@ -7,7 +7,7 @@ import '../css/index.css'
 const Home = () => {
     return (
         <>
-            <section>
+            <section className='banner-section-home'>
                 <div className="banner-container">
                     <div className="banner">
                         <div className="banner-inner">
@@ -44,6 +44,9 @@ const Home = () => {
 
             <section className="products-section">
                 <div className="products">
+                    <div className="products-heading">
+                        <h1>Exclusive Products</h1>
+                    </div>
                     <div className="products-container">
                         <div className="products-box">
                             <div className="product-box-container">

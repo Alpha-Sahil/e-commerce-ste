@@ -5,7 +5,7 @@ const Card = (props) => {
         <div className="card">
             <div className="card-container">
                 <div className="card-image">
-                    <img src={ shirt1 } alt="Loading..." />
+                    <img src={ props.image } alt="Loading..." temp={props.image}/>
                     {/* <img src={ image } alt="Loading..." /> */}
                 </div>
                 { props.children }

@@ -14,17 +14,10 @@ const Header = () => {
                             <div className="navigation-link-container">
                                 <ul type="none" className="navigation-ul">
                                     <li>
-                                        <Link href="/wishlist.html">    
-                                            <i className="fa-solid fa-heart"></i>Wishlist
-                                        </Link>
+                                        Categories
                                     </li>
                                     <li>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                        Cart
-                                    </li>
-                                    <li>
-                                        <i className="fa-solid fa-truck"></i>
-                                        Orders
+                                        Products
                                     </li>
                                 </ul>
                             </div>

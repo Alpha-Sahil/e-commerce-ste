@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .accordions {
+            background-color: #0005;
+            width: 30%;
+            padding: 1em;
+        }
+
+        .accordion-ul {
+            padding: 0;
+        }
+
+        ul li {
+            padding: 1em;
+        }
+
+        .list-item {
+            margin: 0.5em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>
+            Accordion
+        </h1>
+    </center>
+    <div class="accordions">
+        <div class="accordion-conainer">
+            <div class="list-box">
+                <ul type="none" class="accordion-ul">
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i><span class="list-item">first</span>
+                        <ul type="none" class="accordion-ul">
+                            <li>
+                                <i class="fa-solid fa-chevron-right"></i>
+                                <span class="list-item">first</span>
+                        </ul>
+                    </li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span class="list-item">first</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span class="list-item">first</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

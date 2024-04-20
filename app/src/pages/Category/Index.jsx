@@ -1,47 +1,30 @@
 import Card from "../../components/Card"
+import useCategories from "../../hooks/useCategories"
 
 const Index = () => {
+    const { categories, loading } = useCategories()
+
     return (
         <section className="categories-section">
             <div className="categories">
                 <div className="categories-container">
+                    <h1>Choose from your favorite category</h1>
                     <div className="categories-inner-container">
                         <div className="categories-box">
-                            <Card image='../assets/images/category-t-shirt.gif'>
-                                <div className="category-infomation">
-                                    <button><i className="fa-solid fa-shirt"></i> T-Shirts</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-brands fa-shirtsinbulk"></i> Shirts</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-brands fa-hashnode"></i> Jeans</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-solid fa-socks"></i> Shoes</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-solid fa-vest-patches"></i> Jackets</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-solid fa-hat-cowboy"></i> Caps</button>
-                                </div>
-                            </Card>
-                            <Card>
-                                <div className="category-infomation">
-                                    <button><i className="fa-solid fa-face-rolling-eyes"></i> Underwear</button>
-                                </div>
-                            </Card>
+                            { 
+                                loading
+                                ? <div className="loader"></div>
+                                : categories.map( (category, i) => {
+                                    return(
+                                        <Card image={ category.imageURL } key={i}>
+                                    {/* <Card image='../assets/images/category-t-shirt.gif' key={i}> */}
+                                        <div className="category-infomation">
+                                            <button><i className="fa-solid fa-shirt"></i>{ category.name }</button>
+                                        </div>
+                                    </Card>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>

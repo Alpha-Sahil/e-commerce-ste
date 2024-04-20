@@ -2,21 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({ 
-    name: [{
-        type: String,
-        required: true,
-    }],
-    description: [{
-        type: String,
-        required: true,
-    }],
+    name: {type: String, required: true },
+    description: { type: String, required: true },
     slug: String,
     image: String,
-    parent: [{ type: Schema.Types.ObjectId, ref: 'Node' }],
-    active: [{
+    parent: {
+        type: Schema.Types.ObjectId,
+        ref: 'category',
+        allowNull: true,
+        default: null,
+    },
+    active: {   
         type: Boolean,
         required: true,
-    }, { timestamps: true }],
-});
+    },
+}, { timestamps: true });
 
 module.exports = mongoose.model('Category', schema);

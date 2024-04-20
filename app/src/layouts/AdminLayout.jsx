@@ -1,11 +1,11 @@
-import Header from "../components/Header"
+import AdminHeader from "../components/AdminHeader"
 import Footer from "../components/Footer"
 import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
     return (
         <>
-            <Header />
+            <AdminHeader />
                 <Outlet />
             <Footer />
         </>
