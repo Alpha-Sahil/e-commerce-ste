@@ -1,56 +1,35 @@
-import { useState, useMemo } from 'react'
-import AppButton from '../../../components/Button'
-import Create from './Create'
-import List from './List'
-import useCategories from '../../../hooks/useCategories'
+import List from "./List"
+import useCategories from "../../../hooks/useCategories"
 
 const Index = () => {
-    const [showModel, setShowModel] = useState(false)
-    const {categories, setCategories, loading} = useCategories()
-    
-    const addCategory = (value) => {
-        setCategories([...categories, value])
-
-        setShowModel(false)
-    }
-
-    const removeCategory = (value) => {
-        let allCategories = categories.filter((category) => category._id !== value)
-
-        setCategories(allCategories)
-
-        setShowModel(false)
-    }
-
-    const memorizedList = useMemo(() => {
-        return loading
-                ? <div className="loader"></div>
-                : <List categories={categories} deleted={removeCategory}/>
-    }, [categories, loading])
+    const {
+        categories,
+        setCategories,
+        groupedCategories,
+        loading
+    } = useCategories()
 
     return (
-        <section className='admin-categories-section'>
-            {
-                showModel
-                && 
-                <Create
-                    created={addCategory}
-                    categories={ categories }
-                    closed={ () => setShowModel( false ) } />
-            }
-
-            <div className="admin-container">
-                <div className="admin-table">
-                    <div
-                        className="create-button"
-                        style={{float: 'right'}}
-                        onClick={() => setShowModel(true)}>
-                        <AppButton className="app-button">Create</AppButton>
+        <div className="inner-main-container">
+            <div className="categories-search">
+                <i className="fa-solid fa-magnifying-glass search-icon"></i>
+                <input
+                    placeholder='Search Category...'
+                    type="text"
+                    name="search"
+                    id="search"
+                    className='search-input' />
+            </div>
+            <div className="categories-list">
+                <div className="inner-categories-list">
+                    <div className="categories-list-box">
+                        <List
+                            categories={groupedCategories}
+                            originalCategories={categories} />
                     </div>
-                    { memorizedList }
                 </div>
-            </div>  
-        </section>
+            </div>
+        </div>
     )
 }
 

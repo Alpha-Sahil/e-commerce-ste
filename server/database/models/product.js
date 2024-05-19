@@ -6,15 +6,19 @@ const schema = new Schema({
     description: { type: String, required: true },
     slug: String,
     image: String,
-    parent: {
+    category: {
         type: Schema.Types.ObjectId,
         ref: 'category',
-        default: null,
+        required: true,
     },
     active: {   
         type: Boolean,
         required: true,
     },
+    stocks: {
+        type: Number,
+        required: true,
+    }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Category', schema);
+module.exports = mongoose.model('Product', schema);

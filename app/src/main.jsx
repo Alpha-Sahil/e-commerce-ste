@@ -10,7 +10,7 @@ import './index.css'
 import './css/admin.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  // </React.StrictMode>,
+  </React.StrictMode>,
 )

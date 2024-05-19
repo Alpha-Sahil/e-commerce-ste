@@ -139,17 +139,6 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* <!-- <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src="/images/shirt-6.jpg" alt="">
-                                        </div>
-                                        <div className="product-info">
-                                            info
-                                        </div>
-                                    </div>
-                                </div> --> */}
                             </div>
                         </div>
                     </div>

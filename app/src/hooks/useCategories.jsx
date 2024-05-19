@@ -17,7 +17,7 @@ const useCategories = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function allCategories () {
+        function allCategories () {
             axios.get('http://localhost:3000/admin/categories')
                 .then((response) => {
                     setCategories(response.data.categories)

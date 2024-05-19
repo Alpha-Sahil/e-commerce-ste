@@ -574,3 +574,23 @@ a {
     padding: 1em;
     flex: 400px;
 }
+
+.product-container {
+    padding: 1em;
+}
+
+.product-box {
+    margin-top: 1em;
+}
+
+.product-table {
+    width: 100%;
+}
+
+.product-table-heading {
+    background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);
+}
+
+.product-table-heading th {
+    padding: 1em;
+}

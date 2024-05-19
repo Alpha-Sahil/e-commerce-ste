@@ -3,11 +3,11 @@ import { useState } from 'react'
 
 const Form = (props) => {
     const [form, setForm] = useState({
-        name: props.category?.name || '',
-        description: props.category?.description || '',
-        slug: props.category?.slug || '',
-        image: props.category?.image || '',
-        active: props.category?.active || '',
+        name: props.product?.name || '',
+        description: props.product?.description || '',
+        slug: props.product?.slug || '',
+        image: props.product?.image || '',
+        active: props.product?.active || '',
     })
 
     const [image, setImage] = useState()
@@ -33,6 +33,8 @@ const Form = (props) => {
         dataform.append('parent', props.parentCategory?._id || '');
         dataform.append('image', image);
         dataform.append('active', form.active);
+
+        console.log(dataform)
 
         await props.submitted(dataform)
     }
@@ -95,15 +97,6 @@ const Form = (props) => {
                             <label htmlFor="slugInActive">InActive</label>
                         </div>
                     </div>
-                    {
-                        props.parentCategory
-                        &&
-                        <div className="app-form-group">
-                            <label htmlFor="parentCategory">
-                                Parent Category: {props.parentCategory.name}
-                            </label>
-                        </div>
-                    }
                     <div className="app-form-group">
                         <label htmlFor="categoryfile">Image:</label>
                         <input

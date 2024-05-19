@@ -1,38 +1,55 @@
-import Categories from './Categories/Index'
-import useCategories from '../../hooks/useCategories'
-import ListNew from './Categories/ListNew'
 import AppButton from '../../components/Button'
 import Create from './Categories/Create'
-import { useState } from 'react'
+import List from './Categories/List'
+import Products from './Products/Index'
+import useCategories from '../../hooks/useCategories'
+import useProducts from '../../hooks/useProducts'
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useMemo, useCallback } from 'react'
 
 const Index = () => {
-    const [showChildren, setShowChildren] = useState(false)
     const [showModel, setShowModel] = useState(false)
+    const [products, setProducts] = useState([])
+    const addCategory = (value) => setShowModel(false)
+    const navigateTo = useNavigate();
+
+
+    useEffect(() => {
+        const currentProducts = async () => {
+            let response = await useProducts((new URLSearchParams(window.location.search)).get('category'))
+            
+            if (response.length) setProducts(response)
+        }
+
+        currentProducts()
+    }, [])
+
     const {
         categories,
         setCategories,
         groupedCategories,
         loading
     } = useCategories()
+
     const style = {
         fontSize: '.7em',
         width: '100%',
         marginTop: '1em'
     };
 
-    const addCategory = (value) => {
-        setCategories([...categories, value])
+    const productComponent = useMemo(() => {
+        return <Products products={ products } />
+    }, [products])
 
-        setShowModel(false)
-    }
+    const categoryProducts = useCallback(async (category) => {
+        let activeCategoryProducts = await useProducts(category?._id)
 
-    const removeCategory = (value) => {
-        let allCategories = categories.filter((category) => category._id !== value)
+        setProducts(activeCategoryProducts)
 
-        setCategories(allCategories)
-
-        setShowModel(false)
-    }
+        category
+            ? window.history.pushState({}, '', `/admin/?category=${category._id}`)
+            : navigateTo('/admin') 
+    }, [products])
 
     return(
         <>
@@ -40,7 +57,7 @@ const Index = () => {
                 showModel
                 && 
                 <Create
-                    created={addCategory}
+                    created={ addCategory }
                     closed={ () => setShowModel( false ) } />
             }
             <div className="admin-panel">
@@ -68,7 +85,7 @@ const Index = () => {
                                                 </AppButton>
                                             </div>
                                             <div className="categories-list-box">
-                                                <ListNew categories={ groupedCategories } />
+                                                <List fetchProducts={ categoryProducts } categories={ groupedCategories } />
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +94,7 @@ const Index = () => {
                         </div>
                         <div className="admin-panel-content">
                             <div className="content-main">
-                                <Categories />
+                                { productComponent }
                             </div>
                         </div>
                     </div>

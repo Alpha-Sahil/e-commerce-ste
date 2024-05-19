@@ -1,7 +1,7 @@
 const Category = require('../../database/models/category')
 const createCategory = require('../../actions/admin/categories/createCategory')
-const updateCategroy = require('../../actions/admin/categories/updateCategory')
 const deleteCategory = require('../../actions/admin/categories/deleteCategory')
+const updateCategroy = require('../../actions/admin/categories/updateCategory')
 const { validationResult } = require('express-validator')
 
 const index = async (request, response) => {
@@ -21,14 +21,14 @@ const index = async (request, response) => {
 const create = async (request, response) => {
     let errors = validationResult(request)
 
-    if (!errors.isEmpty()) return response.status(422).json({errors: errors.array()})
+    if (!errors.isEmpty()) return response.status(200).json({errors: errors.array()})
 
     let category = await createCategory.create(request.body, request.file)
 
     response.status(200).json({
         status: 'sucess',
-        message: 'Category Created Successfully',
         category: category,
+        message: 'Category Created Successfully',
     })
 }
 
@@ -37,7 +37,13 @@ const update = async (request, response) => {
 
     if (!errors.isEmpty()) return response.status(422).json({errors: errors.array()})
 
-    let category = await updateCategroy.update(request.body, request.file)
+    let category = await updateCategroy.update(request.params.id, request.body, request.file)
+
+    response.status(200).json({
+        status: 'sucess',
+        message: 'Category Updated Successfully',
+        category: category,
+    })
 }
 
 const deleteCategoryAdmin = (request, response) => {

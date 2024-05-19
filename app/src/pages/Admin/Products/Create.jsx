@@ -5,13 +5,13 @@ import { useState } from 'react'
 
 const Create = (props) => {
     const [errors, setErrors] = useState([])
-
+    
     const submit = async (dataform) => {
         let {data} = await axios.post('http://localhost:3000/admin/categories/create', dataform, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
 
         if (data.errors) setErrors(data.errors)
 
@@ -19,7 +19,8 @@ const Create = (props) => {
     }
 
     return (
-        <Model heading="Create Category" closed={ props.closed }>
+        <>
+            <Model heading="Create Product" closed={ props.closed }>
             {
                 errors.length > 0
                 &&
@@ -33,10 +34,9 @@ const Create = (props) => {
                     </div>
                 </div>
             }
-            <Form
-                parentCategory={props.parentCategory}
-                submitted={submit} />
-        </Model>
+                <Form submitted={ submit } />
+            </Model>
+        </>
     )
 }
 
