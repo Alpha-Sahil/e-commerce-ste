@@ -6,6 +6,7 @@ exports.productValidator = [
     check('name').not().isEmpty().withMessage('The Name is required'),
     check('description', 'The Description is required').not().isEmpty().isLength({ max: 255 }).withMessage('Max length is 100 bytes'),
     check('slug', 'The slug is required').not().isEmpty(),
+    check('stocks', 'The Stocks field is required').not().isEmpty().isNumeric().withMessage('Invalid format! enter stocks in numbers'),
     check('category')
         .not()
         .isEmpty()
@@ -13,7 +14,7 @@ exports.productValidator = [
         .custom(async (value) => {
             if (!value) throw new Error('The Category field is required')
 
-            if (!ObjectId.isValid(Value)) throw new Error ('Invalid category')
+            if (!ObjectId.isValid(value)) throw new Error ('Invalid category')
             
             try {
                 let parent = await product.find({ _id: value })

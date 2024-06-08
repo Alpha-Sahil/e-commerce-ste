@@ -1,24 +1,15 @@
 import AppButton from '../../../components/Button'
 import Create from './Create'
-import { useState, useMemo } from 'react'
 import List from './List'
+import { useState, useMemo } from 'react'
 
-const Index = (props) => {
+const Index = () => {
     const [showModel, setShowModel] = useState(false)
-    const [products, setProducts] = useState([])
-
-    const list = useMemo(() => {
-        return <List products={ products } />
-    }, [products])
+    const list = useMemo(() => { return <List /> })
 
     return (
         <>
-            {
-                showModel
-                &&
-                <Create closed={() => setShowModel(false)}/>
-            }
-
+            { showModel && <Create closed={() => setShowModel(false)}/> }
             <div className="products-sections">
                 <div className="product-container">
                     <div className="product-up-container">

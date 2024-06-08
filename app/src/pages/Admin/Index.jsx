@@ -3,62 +3,24 @@ import Create from './Categories/Create'
 import List from './Categories/List'
 import Products from './Products/Index'
 import useCategories from '../../hooks/useCategories'
-import useProducts from '../../hooks/useProducts'
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useMemo } from 'react'
 
 const Index = () => {
+    const { categories, loading } = useCategories()
     const [showModel, setShowModel] = useState(false)
-    const [products, setProducts] = useState([])
-    const addCategory = (value) => setShowModel(false)
-    const navigateTo = useNavigate();
-
-
-    useEffect(() => {
-        const currentProducts = async () => {
-            let response = await useProducts((new URLSearchParams(window.location.search)).get('category'))
-            
-            if (response.length) setProducts(response)
-        }
-
-        currentProducts()
-    }, [])
-
-    const {
-        categories,
-        setCategories,
-        groupedCategories,
-        loading
-    } = useCategories()
-
+    const productComponent = useMemo(() => { return <Products /> }, [])
     const style = {
         fontSize: '.7em',
         width: '100%',
         marginTop: '1em'
     };
 
-    const productComponent = useMemo(() => {
-        return <Products products={ products } />
-    }, [products])
-
-    const categoryProducts = useCallback(async (category) => {
-        let activeCategoryProducts = await useProducts(category?._id)
-
-        setProducts(activeCategoryProducts)
-
-        category
-            ? window.history.pushState({}, '', `/admin/?category=${category._id}`)
-            : navigateTo('/admin') 
-    }, [products])
-
     return(
         <>
             {
                 showModel
                 && 
-                <Create
-                    created={ addCategory }
-                    closed={ () => setShowModel( false ) } />
+                <Create closed={ () => setShowModel( false ) } />
             }
             <div className="admin-panel">
                 <div className="admin-panel-container">
@@ -85,7 +47,7 @@ const Index = () => {
                                                 </AppButton>
                                             </div>
                                             <div className="categories-list-box">
-                                                <List fetchProducts={ categoryProducts } categories={ groupedCategories } />
+                                                <List categories={ categories.grouped } loading={ loading } />
                                             </div>
                                         </div>
                                     </div>

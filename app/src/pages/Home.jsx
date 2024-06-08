@@ -1,7 +1,9 @@
 import bannerImage from '../assets/images/t-banner3.png'
-import shirt1 from '../assets/images/shirt-1.jpg'
-import footerBannerImage from '../assets/images/footer-banner.jpg'
 import Category from "./Category/Index"
+import Products from './Product/Index'
+import WishlistSync from './Wishlist/Sync'
+import footerBannerImage from '../assets/images/footer-banner.jpg'
+import shirt1 from '../assets/images/shirt-1.jpg'
 import '../css/index.css'
 
 const Home = () => {
@@ -14,7 +16,7 @@ const Home = () => {
                             <div className="banner-two-parts">
                                 <div className="banner-slogan">
                                     <div className="slogan">
-                                        <h1 style={{fontSize: '3em'}}>Fashion for Every Occasion, Just a Click Away!</h1>
+                                        <h1 style={ { fontSize: '3em' } }>Fashion for Every Occasion, Just a Click Away!</h1>
                                         <h3>
                                             Discover fashion for every occasion, conveniently accessible with just a click. 
                                             Explore now for style that suits every moment.
@@ -41,12 +43,13 @@ const Home = () => {
             </section>
 
             <Category />
-
-            <section className="products-section">
+            <Products />
+            {/* <section className="products-section">
                 <div className="products">
                     <div className="products-heading">
                         <h1>Exclusive Products</h1>
                     </div>
+                    <WishlistSync product="664b91e6de45f4843d4ccf04"></WishlistSync>
                     <div className="products-container">
                         <div className="products-box">
                             <div className="product-box-container">
@@ -143,7 +146,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className="lower-banner-section">
                 <div className="lower-banner-section">

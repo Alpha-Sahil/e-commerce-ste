@@ -2,16 +2,23 @@ import axios from 'axios'
 import Form from './Form'
 import Model from '../../../components/Model'
 import { useState } from 'react'
+import { toggleProgressBar } from '../../../Redux/Slices/progressBar'
+import { useDispatch } from 'react-redux'
 
 const Create = (props) => {
     const [errors, setErrors] = useState([])
+    const dispatch = useDispatch()
 
     const submit = async (dataform) => {
+        dispatch(toggleProgressBar('show'))
+
         let {data} = await axios.post('http://localhost:3000/admin/categories/create', dataform, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
+
+        dispatch(toggleProgressBar('hide'))
 
         if (data.errors) setErrors(data.errors)
 
@@ -34,8 +41,8 @@ const Create = (props) => {
                 </div>
             }
             <Form
-                parentCategory={props.parentCategory}
-                submitted={submit} />
+                parentCategory={ props.parentCategory }
+                submitted={ submit } />
         </Model>
     )
 }

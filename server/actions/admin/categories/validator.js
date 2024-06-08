@@ -11,7 +11,7 @@ exports.categoryValidator = [
         .custom(async (value) => {
         if (!value) throw new Error('The category field is required')
 
-        if (!ObjectId.isValid(Value)) throw new Error ('Invalid category')
+        if (!ObjectId.isValid(value)) throw new Error ('Invalid category')
 
         let parent = await category.find({ _id: value })
 

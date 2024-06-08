@@ -1,13 +1,13 @@
 import axios from "axios"
 
 const useProducts = async (categoryId) => {
-    if (!categoryId) return []
-
     let response = []
 
     try {
-        response = await axios.get(`http://localhost:3000/admin//products`, {
-            category: categoryId
+        response = await axios.get(`http://localhost:3000/admin/products`, {
+            params: {
+                category: categoryId
+            }
         })
 
         response = response.data.products

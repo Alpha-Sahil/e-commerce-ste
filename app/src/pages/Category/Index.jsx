@@ -14,10 +14,9 @@ const Index = () => {
                             { 
                                 loading
                                 ? <div className="loader"></div>
-                                : categories.map( (category, i) => {
+                                : categories.raw.map( (category, i) => {
                                     return(
-                                        <Card image={ category.imageURL } key={i}>
-                                    {/* <Card image='../assets/images/category-t-shirt.gif' key={i}> */}
+                                        <Card image={ category.imageUrl } key={i}>
                                         <div className="category-infomation">
                                             <button><i className="fa-solid fa-shirt"></i>{ category.name }</button>
                                         </div>

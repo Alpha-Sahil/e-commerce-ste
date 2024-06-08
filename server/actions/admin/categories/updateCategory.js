@@ -14,6 +14,4 @@ const update = async (id, input, image) => {
     return await category.findOneAndUpdate({_id: id}, data)
 }
 
-module.exports = {
-    update
-}
+module.exports = { update }

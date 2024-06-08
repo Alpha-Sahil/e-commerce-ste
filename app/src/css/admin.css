@@ -28,3 +28,52 @@
 .active-category {
     background-color: #DFFFCD; 
 }
+
+td {
+    padding: 1em;
+}
+
+.progress-bar-custom {
+    /* animation: showProgress 10s infinite 200s; */
+    animation-name: showProgress;
+    animation-duration: 15s;
+    background-color: #DFFFCD;
+    height: .5em;
+    position: absolute;
+    width: 0%;
+    animation-delay: 200ms;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: ease-in-out;
+}
+
+@keyframes showProgress {
+    0% {
+        width: 5%;
+        background-color: #5271C4;
+    }
+    10% {
+        width: 10%;
+    }
+    20% {
+        width: 15%;
+        background-color: #B19FFF;
+    }
+    30% {
+        width: 30%;
+        background-color: #d64df8;
+    }
+    50% {
+        width: 40%;
+    }
+    60% {
+        width: 55%;
+    }
+    75% {
+        width: 75%;
+    }
+    100% {
+        width: 100%;
+        background-color: #5271C4;
+    }
+  }

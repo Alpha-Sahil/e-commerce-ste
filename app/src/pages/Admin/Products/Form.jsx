@@ -5,9 +5,11 @@ const Form = (props) => {
     const [form, setForm] = useState({
         name: props.product?.name || '',
         description: props.product?.description || '',
+        stocks: props.product?.stocks || 0,
         slug: props.product?.slug || '',
         image: props.product?.image || '',
         active: props.product?.active || '',
+        category: '6627d48e05c262bbe90529d2',
     })
 
     const [image, setImage] = useState()
@@ -30,12 +32,11 @@ const Form = (props) => {
         dataform.append('name', form.name);
         dataform.append('description', form.description);
         dataform.append('slug', form.slug);
+        dataform.append('stocks', form.stocks);
         dataform.append('parent', props.parentCategory?._id || '');
         dataform.append('image', image);
         dataform.append('active', form.active);
-
-        console.log(dataform)
-
+        dataform.append('category', form.category);
         await props.submitted(dataform)
     }
 
@@ -62,6 +63,16 @@ const Form = (props) => {
                             name='description'
                             type="text"
                             id='description' />
+                    </div>
+                    <div className="app-form-group">
+                        <label htmlFor="slug">Stocks:</label>
+                        <input
+                            onChange={ changeState }
+                            value={ form.stocks }
+                            className="app-input"
+                            name="stocks"
+                            type="number"
+                            id='slug' />
                     </div>
                     <div className="app-form-group">
                         <label htmlFor="slug">Slug:</label>

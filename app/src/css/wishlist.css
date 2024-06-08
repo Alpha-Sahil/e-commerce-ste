@@ -1,0 +1,33 @@
+.wishlist-section {
+    background-color: #0001;
+}
+
+.wishlist-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.wishlist-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.wishlist-filter {
+    width: 10%;
+    padding: 0.5em;
+}
+
+.wishlist-listing {
+    width: 50%;
+    padding: 0.5em;
+}
+
+.wish-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}

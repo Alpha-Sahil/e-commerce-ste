@@ -1,4 +1,5 @@
 const product = require('../../../database/models/product')
+const FILE_UPLOADED_PATH = 'products'
 
 const create = async (input, uploadedImage) => {
     let data = {

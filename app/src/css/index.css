@@ -594,3 +594,29 @@ a {
 .product-table-heading th {
     padding: 1em;
 }
+
+.toast {
+    position: fixed;
+    bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+    font-size: 1.5em;
+    color: white;
+}
+
+.toast-container {
+    background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);
+    padding: 1em 5em 1em 5em;
+    border-radius: 1em;
+    position: relative;
+}
+
+.clost-toast {
+    position: absolute;
+    right: 1em;
+    top: 10px;
+    cursor: pointer;
+}

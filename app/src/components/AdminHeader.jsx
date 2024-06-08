@@ -1,9 +1,11 @@
 import logo from '../assets/images/logo.png'
+import ProgressBar from './ProgressBar';
 import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <header>
+            <ProgressBar />
             <nav>
                 <div className="navigation-container">
                     <div className="navigation">

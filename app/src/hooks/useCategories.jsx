@@ -1,46 +1,20 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-
-const groupedCategoriesWithChildren = (parentCatgories, categories) => {
-    for(let i = 0; i < parentCatgories.length; i++) {
-        let children = categories.filter(category => category.parent === parentCatgories[i]._id)
-
-        if (children.length) parentCatgories[i].children = groupedCategoriesWithChildren(children, categories)
-    }
-
-    return parentCatgories
-}
+import { fetchCategories } from "../Redux/Slices/categories"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 const useCategories = () => {
-    const [categories, setCategories] = useState([]);
-    const [groupedCategories, setGroupedCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        function allCategories () {
-            axios.get('http://localhost:3000/admin/categories')
-                .then((response) => {
-                    setCategories(response.data.categories)
-
-                    let parents = response.data.categories.filter(category => !category.parent)
-
-                    setGroupedCategories(
-                        groupedCategoriesWithChildren(parents, response.data.categories)
-                    )
-
-                    setTimeout(() => {setLoading(false)}, 500)
-                })
+    const dispatch = useDispatch()
+    const categories = useSelector(state => state.category.categories)
+    const loading = useSelector(state => state.category.loading)
+    
+    useEffect(() => { 
+        const dispatchCategories = async () => {
+            await dispatch(fetchCategories())
         }
-
-        allCategories()
+        dispatchCategories()
     }, [])
 
-    return {
-        categories,
-        setCategories,
-        groupedCategories,
-        loading
-    }
+    return { categories, loading }
 }
 
 export default useCategories

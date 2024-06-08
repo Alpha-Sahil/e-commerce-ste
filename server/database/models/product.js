@@ -18,6 +18,7 @@ const schema = new Schema({
     stocks: {
         type: Number,
         required: true,
+        min: [6, 'Must be at least 6, got {VALUE}'],
     }
 }, { timestamps: true });
 
