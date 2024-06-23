@@ -620,3 +620,103 @@ a {
     top: 10px;
     cursor: pointer;
 }
+
+.product-item-box {
+    display: flex;
+    justify-content: center;
+}
+
+.product-item-image {
+    width: 40%;
+    padding: 1em;
+    flex: 400px;
+}
+
+.product-item-image img {
+    width: 100%;
+    border-radius: 1em;
+}
+
+.product-item-description {
+    width: 40%;
+    padding: 1em;
+    flex: 400px;
+}
+
+.product-item-box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stock-alert {
+    color: red;
+}
+
+.product-item-actions button {
+    margin: 0 .5em 0 0;
+}
+
+.product-item-heading {
+    background-color: #DFFFCD;
+    padding: .5px;
+    border-radius: 1em;
+    margin-left: -11px;
+}
+
+.product-item-heading h1 {
+    margin: 16px;
+}
+
+.review {
+    background-color: #DFFFCD;
+    width: 20em;
+    padding: 1em;
+    border-radius: 1em;
+    height: 15em;
+    max-height: 15em;
+    overflow-y: auto;
+}
+
+.product-item-reviews-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+.ratings {
+    font-size: 1.5em;
+}
+
+.write-review {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1em 0 1em 0;
+    gap: 1em;
+    align-items: center;
+}
+
+.write-review textarea {
+    padding: 1em;
+    border-radius: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .write-review textarea {
+        width: 80%;
+    }
+
+    .create-review-textarea {
+        padding: 1em;
+    }
+}
+
+.delete-review {
+    cursor: pointer;
+}

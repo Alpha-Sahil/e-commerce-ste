@@ -1,6 +1,6 @@
 import AppButton from '../../components/Button'
-import { useCreateWishlistMutation, useDestroyWishlistMutation } from '../../Redux/Apis/wishlist'
 import { showToast } from '../../Redux/Slices/toast'
+import { useCreateWishlistMutation } from '../../Redux/Apis/wishlist'
 import { useDispatch } from 'react-redux'
 
 const Sync = (props) => {

@@ -1,11 +1,22 @@
 import AppButton from '../../components/Button'
 import Card from "../../components/Card"
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchWishlist } from '../../Redux/Slices/wishlist'
+import { useMemo } from "react"
+import { useSelector } from "react-redux"
 
-const Index = (props) => {
+const Index = () => {
     const wishlists = useSelector((state) => state.wishlist.wishlists)
+    const list = useMemo(() => {
+        return wishlists.map((wishlist, i) => {
+            return <Card key={ i } image={ wishlist.product.imageUrl }>
+                <div className="product-info">
+                    <div className="product-title">cool tshirts</div>
+                    <div className="product-price">$200</div>
+                    <AppButton>Remove</AppButton>
+                    <AppButton>Cart</AppButton>
+                </div>
+            </Card>
+        })
+    }, [wishlists])
 
     return <>
         <section className="wishlist-section">
@@ -19,18 +30,7 @@ const Index = (props) => {
                             <div className="listing-container">
                                 <div className="listing-box">
                                     <div className="wish-list">
-                                        {
-                                            wishlists.map((wishlist, i) => {
-                                                return <Card key={ i } image={ wishlist.product.imageUrl }>
-                                                    <div className="product-info">
-                                                        <div className="product-title">cool tshirts</div>
-                                                        <div className="product-price">$200</div>
-                                                        <AppButton>Remove</AppButton>
-                                                        <AppButton>Cart</AppButton>
-                                                    </div>
-                                                </Card>
-                                            })
-                                        }
+                                        { list }
                                     </div>
                                 </div>
                             </div>

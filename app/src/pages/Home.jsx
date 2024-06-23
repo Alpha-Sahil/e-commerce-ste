@@ -1,9 +1,7 @@
 import bannerImage from '../assets/images/t-banner3.png'
 import Category from "./Category/Index"
 import Products from './Product/Index'
-import WishlistSync from './Wishlist/Sync'
 import footerBannerImage from '../assets/images/footer-banner.jpg'
-import shirt1 from '../assets/images/shirt-1.jpg'
 import '../css/index.css'
 
 const Home = () => {
@@ -16,7 +14,7 @@ const Home = () => {
                             <div className="banner-two-parts">
                                 <div className="banner-slogan">
                                     <div className="slogan">
-                                        <h1 style={ { fontSize: '3em' } }>Fashion for Every Occasion, Just a Click Away!</h1>
+                                        <h1 style={{ fontSize: '3em' }}>Fashion for Every Occasion, Just a Click Away!</h1>
                                         <h3>
                                             Discover fashion for every occasion, conveniently accessible with just a click. 
                                             Explore now for style that suits every moment.
@@ -34,7 +32,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="banner-image">
-                                    <img src={bannerImage} alt="Loading..." />
+                                    <img src={ bannerImage } alt="Loading..." />
                                 </div>
                             </div>
                         </div>
@@ -43,110 +41,8 @@ const Home = () => {
             </section>
 
             <Category />
+
             <Products />
-            {/* <section className="products-section">
-                <div className="products">
-                    <div className="products-heading">
-                        <h1>Exclusive Products</h1>
-                    </div>
-                    <WishlistSync product="664b91e6de45f4843d4ccf04"></WishlistSync>
-                    <div className="products-container">
-                        <div className="products-box">
-                            <div className="product-box-container">
-                                <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src={shirt1} alt="Loading..." />
-                                        </div>
-                                        <div className="product-info">
-                                            <div className="product-title">cool tshirts</div>
-                                            <div className="product-price">$200</div>
-                                            <button>
-                                                <i className="fa-solid fa-heart"></i> Wishlist
-                                            </button>
-                                            <button>
-                                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src="/images/shirt-2.jpg" alt="Loading..." />
-                                        </div>
-                                        <div className="product-info">
-                                            <div className="product-title">cool tshirts</div>
-                                            <div className="product-price">$200</div>
-                                            <button>
-                                                <i className="fa-solid fa-heart"></i> Wishlist
-                                            </button>
-                                            <button>
-                                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src="/images/shirt-3.jpg" alt="Loading..." />
-                                        </div>
-                                        <div className="product-info">
-                                            <div className="product-title">cool tshirts</div>
-                                            <div className="product-price">$200</div>
-                                            <button>
-                                                <i className="fa-solid fa-heart"></i> Wishlist
-                                            </button>
-                                            <button>
-                                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src="/images/shirt-4.jpg" alt="Loading..." />
-                                        </div>
-                                        <div className="product-info">
-                                            <div className="product-title">cool tshirts</div>
-                                            <div className="product-price">$200</div>
-                                            <button>
-                                                <i className="fa-solid fa-heart"></i> Wishlist
-                                            </button>
-                                            <button>
-                                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="product-single">
-                                    <div className="product-single-container">
-                                        <div className="product-image">
-                                            <img src="/images/shirt-5.jpg" alt="Loading..." />
-                                        </div>
-                                        <div className="product-info">
-                                            <div className="product-title">cool tshirts</div>
-                                            <div className="product-price">$200</div>
-                                            <button>
-                                                <i className="fa-solid fa-heart"></i> Wishlist
-                                            </button>
-                                            <button>
-                                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
 
             <section className="lower-banner-section">
                 <div className="lower-banner-section">

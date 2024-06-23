@@ -1,8 +1,9 @@
 import Card from "../../components/Card"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchProducts } from '../../Redux/Slices/products'
-import { useEffect, useMemo } from "react"
 import WishlistSync from '../Wishlist/Sync'
+import { fetchProducts } from '../../Redux/Slices/products'
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useMemo } from "react"
 
 const Index = () => {
     const dispatch = useDispatch()
@@ -13,16 +14,18 @@ const Index = () => {
     const productList = useMemo(() => {
         return <div className="product-box-container">
             {products.map((product, i) => {
-                return <Card image={ product.imageUrl } key={ i }>
-                    <div className="product-info">
-                        <div className="product-title">{ product.name }</div>
-                        <div className="product-price">$200</div>
-                        <WishlistSync product={ product._id }></WishlistSync>
-                        {/* <button>
-                            <i className="fa-solid fa-cart-shopping"></i> Cart
-                        </button> */}
-                    </div>
-                </Card>
+                return  <Card image={ product.imageUrl } key={ i }>
+                        <div className="product-info">
+                            <Link to={`products/${product._id}`}>
+                                <div className="product-title">{ product.name }</div>
+                                <div className="product-price">$200</div>
+                            </Link>
+                                <WishlistSync product={ product._id }></WishlistSync>
+                            {/* <button>
+                                <i className="fa-solid fa-cart-shopping"></i> Cart
+                                </button> */}
+                        </div>
+                    </Card>
             })}
         </div>
     }, [products])

@@ -31,4 +31,18 @@ const create = async (request, response) => {
         })
 }
 
-module.exports = { index, create }
+const show = async (request, response) => {
+    let status = 200
+
+    let fetchedProduct = await product.find({ _id: request.params.product })
+
+    if (!fetchedProduct.length) status = 404
+
+    response.status(status)
+        .json({
+            status: 'success',
+            product: fetchedProduct
+        }) 
+}
+
+module.exports = { index, create, show }

@@ -11,10 +11,10 @@ router.get('/categories', CategoriesController.index)
 router.post('/categories/create', [uploadCategoryImage.single('image'), categoryValidator], CategoriesController.create)
 router.put('/categories/:id/edit', [uploadCategoryImage.single('image'), categoryValidator], CategoriesController.update)
 router.delete('/categories/:id/delete', CategoriesController.deleteCategoryAdmin)
-
 router.get('/categories/:category/products', ProductController.index)
 
 router.get('/products', ProductController.index)
 router.post('/products/create', [uploadProduct.single('image'), productValidator], ProductController.create)
+router.get('/products/:product', ProductController.show)
 
 module.exports = router

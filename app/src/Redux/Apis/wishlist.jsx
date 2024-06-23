@@ -21,4 +21,5 @@ export const wishlistApi = createApi({
         })
     })
 })
+
 export const { useCreateWishlistMutation, useDestroyWishlistMutation } = wishlistApi
