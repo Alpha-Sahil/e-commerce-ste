@@ -6,26 +6,21 @@ import { useParams } from "react-router-dom";
 import { useProductQuery } from "../../Redux/Apis/product";
 
 const Show = () => {
-    const [activeProduct, setActiveProduct] = useState([])
     const params = useParams()
     const { data, isError, isFetching, isSuccess, error} = useProductQuery(params.product)
-    
-    useEffect(() => {
-        setActiveProduct(data?.product)
-    }, [])
 
     return <div className="product-item">
         <div className="product-item-container">
             <div className="product-item-box">
                 <div className="product-item-box-container">
                     <div className="product-item-image">
-                        <img src={ activeProduct?.imageUrl } alt="" />
+                        <img src={ data?.product?.imageUrl } alt="" />
                     </div>
                     <div className="product-item-description">
                         <div className="produc-item-desc-contaniner">
                             <div className="product-item-header">
                                 <div className="product-item-heading">
-                                    <h1>{ activeProduct?.name }</h1>
+                                    <h1>{ data?.product?.name }</h1>
                                 </div>
                                 <div className="product-item-price">
                                     <h3>$200</h3>
@@ -33,7 +28,7 @@ const Show = () => {
                             </div>
                             <div className="product-item-main-description">
                                 <p>
-                                    { activeProduct?.description }
+                                    { data?.product?.description }
                                 </p>
                             </div>
 

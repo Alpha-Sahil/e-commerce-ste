@@ -16,7 +16,7 @@ const Index = () => {
             {products.map((product, i) => {
                 return  <Card image={ product.imageUrl } key={ i }>
                         <div className="product-info">
-                            <Link to={`products/${product._id}`}>
+                            <Link to={`/products/${product._id}`}>
                                 <div className="product-title">{ product.name }</div>
                                 <div className="product-price">$200</div>
                             </Link>
