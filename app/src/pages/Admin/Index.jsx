@@ -17,11 +17,7 @@ const Index = () => {
 
     return(
         <>
-            {
-                showModel
-                && 
-                <Create closed={ () => setShowModel( false ) } />
-            }
+            { showModel && <Create closed={ () => setShowModel( false ) } /> }
             <div className="admin-panel">
                 <div className="admin-panel-container">
                     <div className="admin-panel-box">

@@ -1,20 +1,24 @@
-import axios from 'axios'
 import Form from './Form'
 import Model from '../../../components/Model'
+import { toggleProgressBar } from '../../../Redux/Slices/progressBar'
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
+import { useUpdateCategoryMutation } from '../../../Redux/Apis/category'
 
 const Edit = (props) => {
+    const dispatch = useDispatch()
+    const [updateCategory, {}] = useUpdateCategoryMutation()
     const [errors, setErrors] = useState([])
 
     const submit = async (dataform) => {
-        let {data} = await axios.put(`http://localhost:3000/admin/categories/${props.category._id}/edit`, dataform, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-
-        setErrors(data.errors)
-
+        dispatch(toggleProgressBar('show'))
+        
+        let response = await updateCategory({category: props.category._id, body: dataform})
+        
+        dispatch(toggleProgressBar('hide'))
+        
+        setErrors(response.data.errors)
+        
         props.closed()
     }
 

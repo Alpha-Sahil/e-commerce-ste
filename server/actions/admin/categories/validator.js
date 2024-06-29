@@ -9,7 +9,7 @@ exports.categoryValidator = [
     check('parent')
         .optional()
         .custom(async (value) => {
-        if (!value) throw new Error('The category field is required')
+        if (!value) return
 
         if (!ObjectId.isValid(value)) throw new Error ('Invalid category')
 

@@ -1,4 +1,5 @@
 import AppButton from '../../../components/Button'
+import { addReview } from '../../../Redux/Slices/review'
 import { useCreateReviewMutation } from '../../../Redux/Apis/review'
 import { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -22,15 +23,22 @@ const Create = (props) => {
 
         dispatch(toggleProgressBar('hide'))
 
-        if (response.data.errors.length) setErrors(response.data.errors)
+        if (response.data?.errors?.length) setErrors(response.data.errors)
         
-        else dispatch(showToast(response.data?.message))
+        else {
+            dispatch(addReview(response.data.review))
+
+            dispatch(showToast(response.data?.message))
+
+            setReview('')
+        }
     }, [review])
 
     return <>
         <div className="write-review">
             <div className="create-review-textarea">
                 <textarea
+                    value={review}
                     onChange={ changeValue }
                     rows="5"
                     cols="50"
@@ -44,7 +52,7 @@ const Create = (props) => {
                 }
             </div>
             <div>
-                <AppButton onClick={ submit } >Submit</AppButton>
+                <AppButton onClick={ submit } loading={ isLoading }>Submit</AppButton>
             </div>
         </div>
     </>

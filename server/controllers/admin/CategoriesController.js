@@ -30,7 +30,7 @@ const create = async (request, response) => {
 const update = async (request, response) => {
     let errors = validationResult(request)
 
-    if (!errors.isEmpty()) return response.status(422).json({errors: errors.array()})
+    if (!errors.isEmpty()) return response.status(200).json({errors: errors.array()})
 
     let category = await updateCategroy.update(request.params.id, request.body, request.file)
 

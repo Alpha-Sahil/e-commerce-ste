@@ -25,5 +25,5 @@ exports.productValidator = [
             }
         }),
     check('active', 'The acitve field is required').not().isEmpty(),
-    check('image', 'The image is required').not().isEmpty(),
+    // check('image', 'The image is required').not().isEmpty(),
 ]

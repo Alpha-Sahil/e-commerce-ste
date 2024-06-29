@@ -4,6 +4,7 @@ import progressBar from './Slices/progressBar';
 import review from './Slices/review'
 import toast from './Slices/toast';
 import wishlists from './Slices/wishlist';
+import { categoryApi } from './Apis/category';
 import { combineReducers } from '@reduxjs/toolkit';
 import { productApi } from './Apis/product';
 import { reviewApi } from './Apis/review';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     review: review,
     toast: toast,
     wishlist: wishlists,
+    [categoryApi.reducerPath]: categoryApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [wishlistApi.reducerPath]: wishlistApi.reducer,

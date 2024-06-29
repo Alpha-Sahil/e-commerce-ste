@@ -1,15 +1,15 @@
 import Create from './Create'
-import Detete from "./Delete"
 import Edit from './Edit'
 import { fetchProducts } from '../../../Redux/Slices/products'
+import { useDestroyCategoryMutation } from '../../../Redux/Apis/category'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { useState, useCallback } from "react"
 
-
 const List = (props) => {
     let activeCategory = (new URL(window.location.href)).searchParams.get("category");
     const dispatch = useDispatch()
+    const [destroyCategory, { isLoading }] = useDestroyCategoryMutation()
     const [childrenArray, setChildrenArray] = useState([])
     const [parentCategory, setParentCategory] = useState('')
     const [editCategory, setEditCategory] = useState('')
@@ -23,12 +23,12 @@ const List = (props) => {
         else setChildrenArray([...childrenArray, i])
     })
 
-    const deleteCategory = (event, category) => {
+    const deleteCategory = async (event, category) => {
         event.preventDefault()
 
         if (category.children) return alert('Delete childs of this category first')
 
-        if (!confirm('Are you sure ?')) Detete(category._id)
+        if (confirm('Are you sure ?')) await dispatch(destroyCategory(category._id))
     }
 
     const fetchProductsOfCategory = useCallback((categoryId = null) => {
@@ -40,29 +40,20 @@ const List = (props) => {
     }, [])
 
     return <section>
-        {
-            parentCategory
-            && 
+        { parentCategory && 
             <Create
                 parentCategory={ parentCategory }
                 categories={ props.categories }
-                closed={ () => setParentCategory( '' ) } />
-        }
-        {
-            editCategory
-            && 
+                closed={ () => setParentCategory( '' ) } /> }
+        { editCategory && 
             <Edit
                 category={editCategory}
-                created={addCategory}
                 categories={ props.categories }
-                closed={ () => setEditCategory( '' ) } />
-        }
+                closed={ () => setEditCategory( '' ) } /> }
 
-        {
-            props.id === undefined && <div className="list" onClick={ () => fetchProductsOfCategory() }>
+        { props.id === undefined && <div className="list" onClick={ () => fetchProductsOfCategory() }>
                 <span className={`list-element ${ !activeCategory && "active-category"}`}>All Products</span>
-            </div>
-        }
+            </div> }
         
         { props.loading
             ? 'loading...'
@@ -92,7 +83,7 @@ const List = (props) => {
                         </span>
                         {(category.children && childrenArray.includes(i))
                         && 
-                        <List id={i} categories={category.children} loading={ props.loading } />}
+                        <List id={ i } categories={ category.children } loading={ props.loading } />}
                     </div>
                 )
             })
